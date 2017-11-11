@@ -1,0 +1,14 @@
+$${
+//this macro working chest only
+//prompt for itemid
+&item=$$[item];key(use);wait(5t);
+do;
+//find, target item & inventory blank
+getslot(%&item%,#sl,0);getslot("air",#airsl,54);
+//log(%&item%:%#sl%:%#airsl%);
+//exit, no item or no blank
+if((#sl==-1)||(#airsl==-1));break;endif;
+//execute move
+slotclick(%#sl%);slotclick(%#airsl%);
+loop;
+}$$
