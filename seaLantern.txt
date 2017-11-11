@@ -1,0 +1,41 @@
+$${
+//log("Start %DATETIME%");
+//wait (server ping or more?)
+#ping=10;
+#successed=0;
+//crafttable open
+//key(use);
+//wait(%#ping%ms);
+//set craft materials
+&craftable[1] = "prismarine_shard";
+&craftable[2] = "prismarine_crystals";
+&craftable[3] = "prismarine_shard";
+&craftable[4] = "prismarine_crystals";
+&craftable[5] = "prismarine_crystals";
+&craftable[6] = "prismarine_crystals";
+&craftable[7] = "prismarine_shard";
+&craftable[8] = "prismarine_crystals";
+&craftable[9] = "prismarine_shard";
+//search inventory and set crafttable
+for(#pos,1,9);
+  if (%&craftable[%#pos%]%!="");
+    getslot(%&craftable[%#pos%]%,#slot,10);
+    if(#slot != -1);
+      slotclick(%#slot%);
+      slotclick(%#pos%);
+      inc(#successed);
+      //wait(%#ping%ms);
+    else;
+      break;
+    endif;
+  endif;
+next;
+
+//craft execute and result
+if(%#successed%==9);
+  slotclick(0,l,true);
+  //log("Done %DATETIME%");
+else;
+  log("Not enough materials found.  Something's wrong with the script.");
+endif;
+}$$

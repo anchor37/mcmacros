@@ -1,0 +1,24 @@
+$${
+//config alert durability
+//Diamond
+if(%ITEMDAMAGE%==1561);#lowdur=80;#stopdur=20;
+//bow
+elseif(%ITEMDAMAGE%==384);#lowdur=20;#stopdur=10;
+//shears
+elseif(%ITEMDAMAGE%==238);#lowdur=20;#stopdur=10;
+//Stone
+elseif(%ITEMDAMAGE%==131);#lowdur=61;#stopdur=5;
+//Iron
+elseif(%ITEMDAMAGE%==150);#lowdur=50;#stopdur=10;
+//Gold
+elseif(%ITEMDAMAGE%==32);#lowdur=10;#stopdur=5;
+//wood
+elseif(%ITEMDAMAGE%==59);#lowdur=10;#stopdur=5;
+endif;
+split(" ","80 70 60 50 45 40 35 30 25 20 15 10 5 4 3 2 1 0",#alert[]);
+//main
+if(%DURABILITY%<= %#lowdur%);
+indexof(#alert,#of,%DURABILITY%);if(#of!=-1);log(durability %DURABILITY%);endif;
+if(%DURABILITY%<=%#stopdur%);key(inventory);endif;
+endif;
+}$$
