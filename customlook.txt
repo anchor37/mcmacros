@@ -1,5 +1,5 @@
 $${
-#yaw=$$[yaw];#pitch=$$[pitch];
+#yaw=$$[1];#pitch=$$[2];
 if(%#yaw%==1);#yaw=90;elseif(%#yaw%==2);#yaw=180;elseif(%#yaw%==3);#yaw=270;endif;
 if(%#pitch%<0);#pitch=360+%#pitch%;endif;
 LOOK(%#yaw%,%#pitch%)

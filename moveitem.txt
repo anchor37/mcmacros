@@ -12,4 +12,5 @@ if((#sl==-1)||(#sl>=54)||(#airsl==-1));break;endif;
 //execute move
 slotclick(%#sl%);slotclick(%#airsl%);
 loop;
+press(escape);
 }$$
